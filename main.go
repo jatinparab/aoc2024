@@ -32,6 +32,7 @@ func main() {
 	var day int
 	fmt.Sscanf(cmd, "%d", &day)
 	t := time.Now()
+	fmt.Printf("-- Running solution for day %d --\n", day)
 	runner.Run(internal.GetFileName(day, isTest))
 	fmt.Println("Time taken:", time.Since(t))
 }
