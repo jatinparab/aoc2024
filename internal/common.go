@@ -57,6 +57,29 @@ func StreamFileColumnsInt(filepath string, callback func(int, int)) {
 	})
 }
 
+func DeleteIndex(slice []int, index int) []int {
+	newSlice := make([]int, len(slice))
+	copy(newSlice, slice)
+	newSlice = append(newSlice[:index], newSlice[index+1:]...)
+	return newSlice
+}
+
+func StreamFileInts(filepath string, callback func([]int)) {
+	StreamFile(filepath, func(line string) {
+		nums := strings.Split(line, " ")
+		ints := []int{}
+		for _, num := range nums {
+			if num == "" {
+				continue
+			}
+			numInt := 0
+			fmt.Sscanf(num, "%d", &numInt)
+			ints = append(ints, numInt)
+		}
+		callback(ints)
+	})
+}
+
 func GetFileName(dayNumber int, isTest bool) string {
 	name := fmt.Sprintf("data/day%d", dayNumber)
 	if isTest {
