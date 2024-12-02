@@ -37,10 +37,18 @@ func analyseLine(levels []int, dampen bool) bool {
 func (d Day2) Run(filepath string) {
 	ans := 0
 	StreamFileInts(filepath, func(levels []int) {
-		val := analyseLine(levels, true)
-		if val {
+		if analyseLine(levels, false) {
 			ans++
 		}
 	})
-	fmt.Println(ans)
+	fmt.Println("Part 1:", ans)
+
+	// Part 2
+	ans = 0
+	StreamFileInts(filepath, func(levels []int) {
+		if analyseLine(levels, true) {
+			ans++
+		}
+	})
+	fmt.Println("Part 2:", ans)
 }
