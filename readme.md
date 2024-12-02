@@ -1,4 +1,5 @@
 # Advent of Code 2024
+Solutions for the Advent of Code 2024, written in Go.
 
 ## Create inputs
 - Create a folder `data` in the root of the project
