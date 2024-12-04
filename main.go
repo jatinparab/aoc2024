@@ -21,6 +21,8 @@ func main() {
 	solutions := map[string]internal.Runner{
 		"1": internal.Day1{},
 		"2": internal.Day2{},
+		"3": internal.NewDay3(),
+		"4": internal.Day4{},
 	}
 	runner, ok := solutions[cmd]
 	if !ok {

@@ -95,3 +95,13 @@ func FrequencyMap[T comparable](list []T) map[T]int {
 	}
 	return freqMap
 }
+
+func FindAllIndexes(str string, substr string) []int {
+	indexes := []int{}
+	for i := 0; i < len(str); i++ {
+		if strings.HasPrefix(str[i:], substr) {
+			indexes = append(indexes, i)
+		}
+	}
+	return indexes
+}
