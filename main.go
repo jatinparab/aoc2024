@@ -24,6 +24,9 @@ func main() {
 		"3": internal.NewDay3(),
 		"4": internal.Day4{},
 		"5": internal.Day5{},
+		"6": internal.NewDay6(),
+		"7": internal.Day7{},
+		// "8": internal.Day7{},
 	}
 	runner, ok := solutions[cmd]
 	if !ok {
