@@ -106,6 +106,18 @@ func FindAllIndexes(str string, substr string) []int {
 	return indexes
 }
 
+func ChunkNumbers[T any](list []T, chunkSize int) [][]T {
+	chunks := [][]T{}
+	for i := 0; i < len(list); i += chunkSize {
+		end := i + chunkSize
+		if end > len(list) {
+			end = len(list)
+		}
+		chunks = append(chunks, list[i:end])
+	}
+	return chunks
+}
+
 // Combinations generates all combinations of size n from the input slice
 func Combinations[T any](input []T, n int) [][]T {
 	if n > len(input) || n <= 0 {
