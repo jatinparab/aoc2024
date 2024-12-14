@@ -105,3 +105,30 @@ func FindAllIndexes(str string, substr string) []int {
 	}
 	return indexes
 }
+
+// Combinations generates all combinations of size n from the input slice
+func Combinations[T any](input []T, n int) [][]T {
+	if n > len(input) || n <= 0 {
+		return nil
+	}
+
+	var result [][]T
+	var comb func(start int, temp []T)
+
+	comb = func(start int, temp []T) {
+		if len(temp) == n {
+			// Create a copy of temp to avoid mutation
+			combination := make([]T, len(temp))
+			copy(combination, temp)
+			result = append(result, combination)
+			return
+		}
+
+		for i := start; i < len(input); i++ {
+			comb(i+1, append(temp, input[i]))
+		}
+	}
+
+	comb(0, []T{})
+	return result
+}

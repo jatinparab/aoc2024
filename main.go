@@ -19,14 +19,15 @@ func main() {
 	isTest := len(os.Args) > 2 && os.Args[2] == "--test"
 
 	solutions := map[string]internal.Runner{
-		"1": internal.Day1{},
-		"2": internal.Day2{},
-		"3": internal.NewDay3(),
-		"4": internal.Day4{},
-		"5": internal.Day5{},
-		"6": internal.NewDay6(),
-		"7": internal.Day7{},
-		// "8": internal.Day7{},
+		"1":  internal.Day1{},
+		"2":  internal.Day2{},
+		"3":  internal.NewDay3(),
+		"4":  internal.Day4{},
+		"5":  internal.Day5{},
+		"6":  internal.NewDay6(),
+		"7":  internal.Day7{},
+		"8":  internal.NewDay8(),
+		"10": internal.NewDay10(),
 	}
 	runner, ok := solutions[cmd]
 	if !ok {
